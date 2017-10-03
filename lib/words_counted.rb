@@ -22,8 +22,8 @@ module WordsCounted
   # @param [String] input   The input to be tokenised
   # @param [Hash] options   The options to pass onto `Counter`
   # @return [WordsCounted::Counter] An instance of Counter
-  def self.count(input, options = {})
-    tokens = Tokeniser.new(input).tokenise(options)
+  def self.count_words(input, options = {})
+    tokens = Tokeniser.new(input).tokenise(pattern: /[^-]+/)
     Counter.new(tokens)
   end
 
